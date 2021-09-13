@@ -35,41 +35,183 @@ import wallEURL from '../assets/images/wall-e.png';
 import woodyURL from '../assets/images/woody.png';
 
 const characters = {
-  alberto: { name: 'Alberto Scorfano', url: albertoURL },
-  anger: { name: 'Anger', url: angerURL },
-  arlo: { name: 'Arlo', url: arloURL },
-  boo: { name: 'Boo', url: booURL },
-  buzz: { name: 'Buzz Lightyear', url: buzzURL },
-  carl: { name: 'Carl Fredricksen', url: carlURL },
-  dante: { name: 'Dante', url: danteURL },
-  dash: { name: 'Dash Parr', url: dashURL },
-  disgust: { name: 'Disgust', url: disgustURL },
-  dory: { name: 'Dory', url: doryURL },
-  dug: { name: 'Dug', url: dugURL },
-  elastigirl: { name: 'Elastigirl', url: elastigirlURL },
-  fear: { name: 'Fear', url: fearURL },
-  flik: { name: 'Flik', url: flikURL },
-  forky: { name: 'Forky', url: forkyURL },
-  frozone: { name: 'Frozone', url: frozoneURL },
-  giulia: { name: 'Giulia Marcovaldo', url: giuliaURL },
-  joe: { name: 'Joe Gardner', url: joeURL },
-  joy: { name: 'Joy', url: joyURL },
-  luca: { name: 'Luca Paguro', url: lucaURL },
-  mcqueen: { name: 'Lightning McQueen', url: mcqueenURL },
-  merida: { name: 'Princess Merida', url: meridaURL },
-  miguel: { name: 'Miguel Rivera', url: miguelURL },
-  mike: { name: 'Mike Wazowski', url: mikeURL },
-  mrIncredible: { name: 'Mr. Incredible', url: mrIncredibleURL },
-  nemo: { name: 'Nemo', url: nemoURL },
-  randall: { name: 'Randall Boggs', url: randallURL },
-  remy: { name: 'Remy', url: remyURL },
-  russell: { name: 'Russell', url: russellURL },
-  sadness: { name: 'Sadness', url: sadnessURL },
-  sulley: { name: 'James P. Sullivan (Sulley)', url: sulleyURL },
-  towmater: { name: 'Sir Tow Mater', url: towmaterURL },
-  violet: { name: 'Violet Parr', url: violetURL },
-  wallE: { name: 'WALL-E', url: wallEURL },
-  woody: { name: 'Sheriff Woody', url: woodyURL },
+  alberto: {
+    name: 'Alberto Scorfano',
+    url: albertoURL,
+    isActive: false,
+  },
+  anger: {
+    name: 'Anger',
+    url: angerURL,
+    isActive: false,
+  },
+  arlo: {
+    name: 'Arlo',
+    url: arloURL,
+    isActive: false,
+  },
+  boo: {
+    name: 'Boo',
+    url: booURL,
+    isActive: false,
+  },
+  buzz: {
+    name: 'Buzz Lightyear',
+    url: buzzURL,
+    isActive: false,
+  },
+  carl: {
+    name: 'Carl Fredricksen',
+    url: carlURL,
+    isActive: false,
+  },
+  dante: {
+    name: 'Dante',
+    url: danteURL,
+    isActive: false,
+  },
+  dash: {
+    name: 'Dash Parr',
+    url: dashURL,
+    isActive: false,
+  },
+  disgust: {
+    name: 'Disgust',
+    url: disgustURL,
+    isActive: false,
+  },
+  dory: {
+    name: 'Dory',
+    url: doryURL,
+    isActive: false,
+  },
+  dug: {
+    name: 'Dug',
+    url: dugURL,
+    isActive: false,
+  },
+  elastigirl: {
+    name: 'Elastigirl',
+    url: elastigirlURL,
+    isActive: false,
+  },
+  fear: {
+    name: 'Fear',
+    url: fearURL,
+    isActive: false,
+  },
+  flik: {
+    name: 'Flik',
+    url: flikURL,
+    isActive: false,
+  },
+  forky: {
+    name: 'Forky',
+    url: forkyURL,
+    isActive: false,
+  },
+  frozone: {
+    name: 'Frozone',
+    url: frozoneURL,
+    isActive: false,
+  },
+  giulia: {
+    name: 'Giulia Marcovaldo',
+    url: giuliaURL,
+    isActive: false,
+  },
+  joe: {
+    name: 'Joe Gardner',
+    url: joeURL,
+    isActive: false,
+  },
+  joy: {
+    name: 'Joy',
+    url: joyURL,
+    isActive: false,
+  },
+  luca: {
+    name: 'Luca Paguro',
+    url: lucaURL,
+    isActive: false,
+  },
+  mcqueen: {
+    name: 'Lightning McQueen',
+    url: mcqueenURL,
+    isActive: false,
+  },
+  merida: {
+    name: 'Princess Merida',
+    url: meridaURL,
+    isActive: false,
+  },
+  miguel: {
+    name: 'Miguel Rivera',
+    url: miguelURL,
+    isActive: false,
+  },
+  mike: {
+    name: 'Mike Wazowski',
+    url: mikeURL,
+    isActive: false,
+  },
+  mrIncredible: {
+    name: 'Mr. Incredible',
+    url: mrIncredibleURL,
+    isActive: false,
+  },
+  nemo: {
+    name: 'Nemo',
+    url: nemoURL,
+    isActive: false,
+  },
+  randall: {
+    name: 'Randall Boggs',
+    url: randallURL,
+    isActive: false,
+  },
+  remy: {
+    name: 'Remy',
+    url: remyURL,
+    isActive: false,
+  },
+  russell: {
+    name: 'Russell',
+    url: russellURL,
+    isActive: false,
+  },
+  sadness: {
+    name: 'Sadness',
+    url: sadnessURL,
+    isActive: false,
+  },
+  sulley: {
+    name: 'James P. Sullivan (Sulley)',
+    url: sulleyURL,
+    isActive: false,
+  },
+  towmater: {
+    name: 'Sir Tow Mater',
+    url: towmaterURL,
+    isActive: false,
+  },
+  violet: {
+    name: 'Violet Parr',
+    url: violetURL,
+    isActive: false,
+  },
+  wallE: {
+    name: 'WALL-E',
+    url: wallEURL,
+    isActive: false,
+  },
+  woody: {
+    name: 'Sheriff Woody',
+    url: woodyURL,
+    isActive: false,
+  },
 };
+
+console.log(characters)
 
 export default characters;
