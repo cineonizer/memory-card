@@ -8,17 +8,22 @@ const App = () => {
   const [currentScore, setCurrentScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
 
-
   const incrementCurrentScore = () => {
-    console.log('add')
-    setCurrentScore(currentScore + 1);
-  }
+    setCurrentScore((prevScore) => prevScore + 1);
+  };
+
+  const updateBestScore = () => {
+    setBestScore(currentScore);
+  };
 
   return (
     <div className="App">
       <Nav />
-      <Scoreboard currentScore={currentScore} bestScore={bestScore}/>
-      <Main incrementCurrentScore={incrementCurrentScore}/>
+      <Scoreboard currentScore={currentScore} bestScore={bestScore} />
+      <Main
+        currentScore={currentScore}
+        incrementCurrentScore={incrementCurrentScore}
+      />
     </div>
   );
 };
