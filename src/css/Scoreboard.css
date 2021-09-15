@@ -15,3 +15,15 @@
   color: #ffffff;
   user-select: none;
 }
+
+.current-score {
+  width: 243px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.best-score {
+  width: 179px;
+  display: flex;
+  justify-content: space-between;
+}

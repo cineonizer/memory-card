@@ -12,8 +12,4 @@ const getRandomCard = (charactersObj) => {
   return charactersObj[randomCharacter];
 };
 
-const setCardIsActive = (card, bool) => {
-  card.isActive = bool;
-};
-
-export { getRandomCard, setCardIsActive };
+export { getRandomCard };

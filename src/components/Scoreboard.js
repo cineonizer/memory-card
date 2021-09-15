@@ -7,8 +7,14 @@ const Scoreboard = (props) => {
   return (
     <div className="scoreboard-container">
       <div className="scoreboard">
-        <div className="current-score">CURRENT SCORE: {currentScore}</div>
-        <div className="best-score">BEST SCORE: {bestScore}</div>
+        <div className="current-score">
+          <span>CURRENT SCORE:</span>
+          <span>{currentScore}</span>
+        </div>
+        <div className="best-score">
+          <span>BEST SCORE:</span>
+          <span>{bestScore}</span>
+        </div>
       </div>
     </div>
   );

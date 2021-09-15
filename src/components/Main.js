@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Card from './Card';
 import characters from './Characters';
-import { getRandomCard, setCardIsActive } from './Helper';
+import { getRandomCard } from './Helper';
+import uniqid from 'uniqid';
 import '../css/Main.css';
+import { act } from 'react-dom/test-utils';
 
 const Main = (props) => {
   const [level, setLevel] = useState(1);
@@ -12,33 +14,29 @@ const Main = (props) => {
 
   const { currentScore, incrementCurrentScore } = props;
 
-  // a method to add a number of object of characters to a temporary array, which will later be assigned to the activeDeck state
-  const getNewCards = () => {
-    const tempActiveDeck = [];
-    // loop until the temporary array contains the number of character cards required
-    while (tempActiveDeck.length !== numOfCards) {
-      const randomCard = getRandomCard(characters);
-      // if the array does not contain a duplicate character and the character was not discarded (already used) then push the character into the array
-      if (
-        !tempActiveDeck.includes(randomCard) &&
-        !discardDeck.includes(randomCard)
-      ) {
-        tempActiveDeck.push(randomCard);
-        // set character's isActive property to true since it's now being used
-        setCardIsActive(randomCard, true);
-      }
-    }
-    return tempActiveDeck;
-  };
-
   // effect hook for when the component is mounted: set the activeDeck state to the temp array of characters that was created
   useEffect(() => {
-    const newDeck = getNewCards();
-    setActiveDeck(newDeck);
-  }, []);
+    setActiveDeck(() => {
+      const newDeck = []
+      while (newDeck.length !== numOfCards) {
+        const randomCard = getRandomCard(characters);
+        // if the array does not contain a duplicate character and the character was not discarded (already used) then push the character into the array
+        if (!newDeck.includes(randomCard) && !discardDeck.includes(randomCard)) {
+          newDeck.push(randomCard);
+        }
+      }
+      return newDeck;
+    })
+  }, [numOfCards]);
 
   // effect hook for when the currentScore prop changes: shuffle the deck and rerender
   useEffect(() => {
+    if (currentScore && activeDeck.every(card => card.isClicked)) {
+      activeDeck.map((card) =>
+        setDiscardDeck((prevDiscardDeck) => [...prevDiscardDeck, card])
+      );
+      setLevel(level + 1);
+    }
     // a method that randomizes the elements in the activeDeck array by reassigning the index (i) with a random index (j)
     setActiveDeck((prevActiveDeck) => {
       const shuffledDeck = [...prevActiveDeck];
@@ -48,11 +46,26 @@ const Main = (props) => {
       }
       return shuffledDeck;
     });
-
-    setDiscardDeck(() => {
-      
-    });
   }, [currentScore]);
+
+  useEffect(() => {
+    const gridColumns = document.querySelector('.main-container');
+    switch (level) {
+      case 2:
+        setNumOfCards(8);
+        break;
+      case 3:
+        setNumOfCards(10);
+        gridColumns.style.gridTemplateColumns = `repeat(5, 1fr)`;
+        break;
+      case 4:
+        setNumOfCards(14);
+        gridColumns.style.gridTemplateColumns = 'repeat(7, 1fr)';
+        break;
+      default:
+        return;
+    }
+  }, [level])
 
   return (
     <div className="main-wrapper">
@@ -60,9 +73,8 @@ const Main = (props) => {
         {activeDeck.map((card) => {
           return (
             <Card
-              key={card.id}
-              url={card.url}
-              name={card.name}
+              card={card}
+              key={uniqid()}
               incrementCurrentScore={incrementCurrentScore}
             />
           );
