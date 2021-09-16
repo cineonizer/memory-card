@@ -2,11 +2,12 @@ import React from 'react';
 import '../css/Card.css'
 
 const Card = (props) => {
-  const { card, incrementCurrentScore } = props;
+  const { card, incrementCurrentScore, setGameOver } = props;
 
   const handleClick = () => {
+    // if the card is clicked again then set the game to be over
     if (card.isClicked) {
-      console.log('GAME OVER: this was already clicked!')
+      setGameOver(true)
     } else {
       incrementCurrentScore()
       card.isClicked = true;

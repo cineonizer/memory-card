@@ -1,0 +1,12 @@
+.gameover {
+  font-family: Brandon;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.game-over-text {
+  font-size: 2em;
+  letter-spacing: 3px;
+  color: #ffffff;
+}
