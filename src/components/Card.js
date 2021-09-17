@@ -4,7 +4,7 @@ import '../css/Card.css'
 const Card = (props) => {
   const { card, incrementCurrentScore, setGameOver } = props;
 
-  const handleClick = () => {
+  const handleClickEvent = () => {
     // if the card is clicked again then set the game to be over
     if (card.isClicked) {
       setGameOver(true)
@@ -16,7 +16,7 @@ const Card = (props) => {
 
   return (
     <div className="card">
-      <img className="image" src={card.url} alt={card.name} draggable="false" onClick={handleClick}/>
+      <img className="image" src={card.url} alt={card.name} draggable="false" onClick={handleClickEvent}/>
       <span className="name">{card.name.toUpperCase()}</span>
     </div>
   )

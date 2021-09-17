@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Card from './Card';
 import characters from './Characters';
-import { getRandomCard } from './Helper';
+import { getRandomCard, resetAllClickedCards } from './Helper';
 import GameOver from './GameOver';
 import uniqid from 'uniqid';
 import '../css/Main.css';
@@ -13,7 +13,7 @@ const Main = (props) => {
   const [discardDeck, setDiscardDeck] = useState([]);
   const [gameOver, setGameOver] = useState(false);
 
-  const { currentScore, incrementCurrentScore } = props;
+  const { currentScore, incrementCurrentScore, resetCurrentScore, updateBestScore } = props;
 
   // effect hook for when the state numOfCards changes: when numOfCards changes, the level changes, so set the activeDeck to new cards
   useEffect(() => {
@@ -56,28 +56,43 @@ const Main = (props) => {
   // effect hook for when the level state changes: set the state numOfCards to a higher number depending on the level
   useEffect(() => {
     const gridColumns = document.querySelector('.cards-container');
+    let numOfColumns = 4;
     switch (level) {
+      case 1:
+        console.log('shouldnt it run?')
+        setNumOfCards(4);
+        break;
       case 2:
         setNumOfCards(8);
         break;
       case 3:
         setNumOfCards(10);
-        gridColumns.style.gridTemplateColumns = `repeat(5, 1fr)`;
+        numOfColumns = 5;
         break;
       case 4:
         setNumOfCards(14);
-        gridColumns.style.gridTemplateColumns = 'repeat(7, 1fr)';
+        numOfColumns = 7;
         break;
       default:
         return;
     }
+    gridColumns.style.gridTemplateColumns = `repeat(${numOfColumns}, 1fr)`;
   }, [level]);
+
+  const handleNewGameClickEvent = () => {
+    updateBestScore()
+    setGameOver(false)
+    resetAllClickedCards(characters)
+    resetCurrentScore()
+    setDiscardDeck([])
+    setLevel(1)
+  };
 
   return (
     <div className="main-wrapper">
       {gameOver ? (
         <div className="game-over-container">
-          <GameOver />
+          <GameOver handleNewGameClickEvent={handleNewGameClickEvent} />
         </div>
       ) : (
         <div className="cards-container">

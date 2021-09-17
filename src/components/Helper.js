@@ -12,4 +12,8 @@ const getRandomCard = (charactersObj) => {
   return charactersObj[randomCharacter];
 };
 
-export { getRandomCard };
+const resetAllClickedCards = (charactersObj) => {
+  Object.keys(charactersObj).map((card) => charactersObj[card].isClicked = false)
+}
+
+export { getRandomCard, resetAllClickedCards };

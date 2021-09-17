@@ -12,6 +12,10 @@ const App = () => {
     setCurrentScore((prevScore) => prevScore + 1);
   };
 
+  const resetCurrentScore = () => {
+    setCurrentScore(0)
+  };
+
   const updateBestScore = () => {
     setBestScore(currentScore);
   };
@@ -23,6 +27,8 @@ const App = () => {
       <Main
         currentScore={currentScore}
         incrementCurrentScore={incrementCurrentScore}
+        resetCurrentScore={resetCurrentScore}
+        updateBestScore={updateBestScore}
       />
     </div>
   );
