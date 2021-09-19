@@ -17,13 +17,13 @@
 }
 
 .current-score {
-  width: 243px;
+  width: 244px;
   display: flex;
   justify-content: space-between;
 }
 
 .best-score {
-  width: 179px;
+  width: 200px;
   display: flex;
   justify-content: space-between;
 }

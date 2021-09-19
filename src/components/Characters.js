@@ -1,39 +1,40 @@
-import albertoURL from '../assets/images/alberto.png';
-import angerURL from '../assets/images/anger.png';
-import arloURL from '../assets/images/arlo.png';
-import booURL from '../assets/images/boo.png';
-import buzzURL from '../assets/images/buzz.png';
-import carlURL from '../assets/images/carl.png';
-import danteURL from '../assets/images/dante.png';
-import dashURL from '../assets/images/dash.png';
-import disgustURL from '../assets/images/disgust.png';
-import doryURL from '../assets/images/dory.png';
-import dugURL from '../assets/images/dug.png';
-import elastigirlURL from '../assets/images/elastigirl.png';
-import fearURL from '../assets/images/fear.png';
-import flikURL from '../assets/images/flik.png';
-import forkyURL from '../assets/images/forky.png';
-import frozoneURL from '../assets/images/frozone.png';
-import giuliaURL from '../assets/images/giulia.png';
-import jackjackURL from '../assets/images/jack-jack.png';
-import joeURL from '../assets/images/joe.png';
-import joyURL from '../assets/images/joy.png';
-import lucaURL from '../assets/images/luca.png';
-import mcqueenURL from '../assets/images/mcqueen.png';
-import meridaURL from '../assets/images/merida.png';
-import miguelURL from '../assets/images/miguel.png';
-import mikeURL from '../assets/images/mike.png';
-import mrIncredibleURL from '../assets/images/mr. incredible.png';
-import nemoURL from '../assets/images/nemo.png';
-import randallURL from '../assets/images/randall.png';
-import remyURL from '../assets/images/remy.png';
-import russellURL from '../assets/images/russell.png';
-import sadnessURL from '../assets/images/sadness.png';
-import sulleyURL from '../assets/images/sulley.png';
-import towmaterURL from '../assets/images/towmater.png';
-import violetURL from '../assets/images/violet.png';
-import wallEURL from '../assets/images/wall-e.png';
-import woodyURL from '../assets/images/woody.png';
+import albertoURL from '../assets/characters/alberto.png';
+import angerURL from '../assets/characters/anger.png';
+import arloURL from '../assets/characters/arlo.png';
+import booURL from '../assets/characters/boo.png';
+import buzzURL from '../assets/characters/buzz.png';
+import carlURL from '../assets/characters/carl.png';
+import danteURL from '../assets/characters/dante.png';
+import dashURL from '../assets/characters/dash.png';
+import disgustURL from '../assets/characters/disgust.png';
+import doryURL from '../assets/characters/dory.png';
+import dugURL from '../assets/characters/dug.png';
+import elastigirlURL from '../assets/characters/elastigirl.png';
+import fearURL from '../assets/characters/fear.png';
+import flikURL from '../assets/characters/flik.png';
+import forkyURL from '../assets/characters/forky.png';
+import frozoneURL from '../assets/characters/frozone.png';
+import giuliaURL from '../assets/characters/giulia.png';
+import jackjackURL from '../assets/characters/jack-jack.png';
+import jessieURL from '../assets/characters/jessie.png';
+import joeURL from '../assets/characters/joe.png';
+import joyURL from '../assets/characters/joy.png';
+import lucaURL from '../assets/characters/luca.png';
+import mcqueenURL from '../assets/characters/mcqueen.png';
+import meridaURL from '../assets/characters/merida.png';
+import miguelURL from '../assets/characters/miguel.png';
+import mikeURL from '../assets/characters/mike.png';
+import mrIncredibleURL from '../assets/characters/mr. incredible.png';
+import nemoURL from '../assets/characters/nemo.png';
+import randallURL from '../assets/characters/randall.png';
+import remyURL from '../assets/characters/remy.png';
+import russellURL from '../assets/characters/russell.png';
+import sadnessURL from '../assets/characters/sadness.png';
+import sulleyURL from '../assets/characters/sulley.png';
+import towmaterURL from '../assets/characters/towmater.png';
+import violetURL from '../assets/characters/violet.png';
+import wallEURL from '../assets/characters/wall-e.png';
+import woodyURL from '../assets/characters/woody.png';
 
 const characters = {
   alberto: {
@@ -92,7 +93,7 @@ const characters = {
     isClicked: false,
   },
   elastigirl: {
-    name: 'Elastigirl',
+    name: 'Helen Parr (Elastigirl)',
     url: elastigirlURL,
     isClicked: false,
   },
@@ -124,6 +125,11 @@ const characters = {
   jackjack: {
     name: 'Jack-Jack Parr',
     url: jackjackURL,
+    isClicked: false,
+  },
+  jessie: {
+    name: 'Jessie',
+    url: jessieURL,
     isClicked: false,
   },
   joe: {
@@ -162,7 +168,7 @@ const characters = {
     isClicked: false,
   },
   mrIncredible: {
-    name: 'Mr. Incredible',
+    name: 'Bob Parr (Mr. Incredible)',
     url: mrIncredibleURL,
     isClicked: false,
   },

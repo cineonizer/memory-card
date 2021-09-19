@@ -10,7 +10,7 @@
   width: fit-content;
   height: 600px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 10px;
   justify-items: center;
   align-items: center;

@@ -8,12 +8,17 @@ import '../css/Main.css';
 
 const Main = (props) => {
   const [level, setLevel] = useState(1);
-  const [numOfCards, setNumOfCards] = useState(4);
+  const [numOfCards, setNumOfCards] = useState(5);
   const [activeDeck, setActiveDeck] = useState([]);
   const [discardDeck, setDiscardDeck] = useState([]);
   const [gameOver, setGameOver] = useState(false);
 
-  const { currentScore, incrementCurrentScore, resetCurrentScore, updateBestScore } = props;
+  const {
+    currentScore,
+    incrementCurrentScore,
+    resetCurrentScore,
+    updateBestScore,
+  } = props;
 
   // effect hook for when the state numOfCards changes: when numOfCards changes, the level changes, so set the activeDeck to new cards
   useEffect(() => {
@@ -42,28 +47,32 @@ const Main = (props) => {
       );
       setLevel(level + 1);
     }
+    if (currentScore === Object.keys(characters).length) {
+      setGameOver(true)
+      setLevel(0)
+    }
     // a method that randomizes the elements in the activeDeck array by reassigning the index (i) with a random index (j)
-    // setActiveDeck((prevActiveDeck) => {
-    //   const shuffledDeck = [...prevActiveDeck];
-    //   for (let i = shuffledDeck.length - 1; i > 0; i--) {
-    //     const j = Math.floor(Math.random() * (i + 1));
-    //     [shuffledDeck[i], shuffledDeck[j]] = [shuffledDeck[j], shuffledDeck[i]];
-    //   }
-    //   return shuffledDeck;
-    // });
+    setActiveDeck((prevActiveDeck) => {
+      const shuffledDeck = [...prevActiveDeck];
+      for (let i = shuffledDeck.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffledDeck[i], shuffledDeck[j]] = [shuffledDeck[j], shuffledDeck[i]];
+      }
+      return shuffledDeck;
+    });
   }, [currentScore]);
 
   // effect hook for when the level state changes: set the state numOfCards to a higher number depending on the level
   useEffect(() => {
     const gridColumns = document.querySelector('.cards-container');
-    let numOfColumns = 4;
+    let numOfColumns = 5;
     switch (level) {
       case 1:
-        console.log('shouldnt it run?')
-        setNumOfCards(4);
+        setNumOfCards(5);
         break;
       case 2:
         setNumOfCards(8);
+        numOfColumns = 4;
         break;
       case 3:
         setNumOfCards(10);
@@ -74,38 +83,48 @@ const Main = (props) => {
         numOfColumns = 7;
         break;
       default:
+        setNumOfCards(0)
         return;
     }
     gridColumns.style.gridTemplateColumns = `repeat(${numOfColumns}, 1fr)`;
   }, [level]);
 
   const handleNewGameClickEvent = () => {
-    updateBestScore()
-    setGameOver(false)
-    resetAllClickedCards(characters)
-    resetCurrentScore()
-    setDiscardDeck([])
-    setLevel(1)
+    setGameOver(false);
+    updateBestScore();
+    resetCurrentScore();
+    resetAllClickedCards(characters);
+    setDiscardDeck([]);
+    setLevel(1);
+  };
+
+  const RenderGameOver = () => {
+    return (
+      <div className="game-over-container">
+        <GameOver handleNewGameClickEvent={handleNewGameClickEvent} />
+      </div>
+    );
+  };
+
+  const RenderCards = () => {
+    return (
+      <div className="cards-container">
+        {activeDeck.map((card) => (
+          <Card
+            card={card}
+            key={uniqid()}
+            incrementCurrentScore={incrementCurrentScore}
+            setGameOver={setGameOver}
+            setLevel={setLevel}
+          />
+        ))}
+      </div>
+    );
   };
 
   return (
     <div className="main-wrapper">
-      {gameOver ? (
-        <div className="game-over-container">
-          <GameOver handleNewGameClickEvent={handleNewGameClickEvent} />
-        </div>
-      ) : (
-        <div className="cards-container">
-          {activeDeck.map((card) => (
-            <Card
-              card={card}
-              key={uniqid()}
-              incrementCurrentScore={incrementCurrentScore}
-              setGameOver={setGameOver}
-            />
-          ))}
-        </div>
-      )}
+      {gameOver ? RenderGameOver() : RenderCards()}
     </div>
   );
 };
