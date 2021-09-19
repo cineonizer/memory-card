@@ -25,5 +25,5 @@ Construct a CV application in React framework, in lieu of plain JavaScript, that
 * More familiarization with React framework and React components.
 * Learned to use lifecycle methods to implement more dynamic functionality.
 * Learned to use functional components with hooks.
-* Learned specifically about useState and useEffect hooks.
+* Implemented specifically the useState and useEffect hooks.
 * Applied [conditional rendering](https://reactjs.org/docs/conditional-rendering.html) to render specific components based on the current state.
