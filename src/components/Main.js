@@ -48,8 +48,8 @@ const Main = (props) => {
       setLevel(level + 1);
     }
     if (currentScore === Object.keys(characters).length) {
-      setGameOver(true)
-      setLevel(0)
+      setGameOver(true);
+      setLevel(0);
     }
     // a method that randomizes the elements in the activeDeck array by reassigning the index (i) with a random index (j)
     setActiveDeck((prevActiveDeck) => {
@@ -82,7 +82,7 @@ const Main = (props) => {
         setNumOfCards(14);
         break;
       default:
-        setNumOfCards(0)
+        setNumOfCards(0);
         return;
     }
     cardsContainer.style.gridTemplateColumns = `repeat(${numOfColumns}, 1fr)`;
