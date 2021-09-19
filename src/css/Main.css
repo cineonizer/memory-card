@@ -8,8 +8,7 @@
 
 .cards-container {
   width: fit-content;
-  height: 100%;
-  margin-top: 175px;
+  height: 600px;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 10px;
@@ -28,11 +27,5 @@
   .cards-container {
     display: flex;
     flex-direction: column;
-    margin-top: 0;
-  }
-
-  .game-over-container {
-    width: 100%;
-    margin-bottom: 50px;
   }
 }

@@ -52,19 +52,19 @@ const Main = (props) => {
       setLevel(0)
     }
     // a method that randomizes the elements in the activeDeck array by reassigning the index (i) with a random index (j)
-    setActiveDeck((prevActiveDeck) => {
-      const shuffledDeck = [...prevActiveDeck];
-      for (let i = shuffledDeck.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [shuffledDeck[i], shuffledDeck[j]] = [shuffledDeck[j], shuffledDeck[i]];
-      }
-      return shuffledDeck;
-    });
+    // setActiveDeck((prevActiveDeck) => {
+    //   const shuffledDeck = [...prevActiveDeck];
+    //   for (let i = shuffledDeck.length - 1; i > 0; i--) {
+    //     const j = Math.floor(Math.random() * (i + 1));
+    //     [shuffledDeck[i], shuffledDeck[j]] = [shuffledDeck[j], shuffledDeck[i]];
+    //   }
+    //   return shuffledDeck;
+    // });
   }, [currentScore]);
 
   // effect hook for when the level state changes: set the state numOfCards to a higher number depending on the level
   useEffect(() => {
-    const gridColumns = document.querySelector('.cards-container');
+    const cardsContainer = document.querySelector('.cards-container');
     let numOfColumns = 5;
     switch (level) {
       case 1:
@@ -80,13 +80,12 @@ const Main = (props) => {
         break;
       case 4:
         setNumOfCards(14);
-        numOfColumns = 7;
         break;
       default:
         setNumOfCards(0)
         return;
     }
-    gridColumns.style.gridTemplateColumns = `repeat(${numOfColumns}, 1fr)`;
+    cardsContainer.style.gridTemplateColumns = `repeat(${numOfColumns}, 1fr)`;
   }, [level]);
 
   const handleNewGameClickEvent = () => {
