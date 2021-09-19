@@ -17,9 +17,6 @@ body {
 
 @media (max-width:1111px) {
   body {
-    background: url('../assets/background/background.png');
     background-repeat: repeat;
-    background-size: cover;
-    overflow-x: hidden;
   }
 }
