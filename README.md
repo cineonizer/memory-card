@@ -12,7 +12,7 @@ Click [here](https://cineonizer.github.io/memory-card/) for a live preview of my
 
 ## Goal
 
-Construct a CV application in React framework, in lieu of plain JavaScript, that will generate a résumé from the user provided details and descriptions.
+Develop an application in React framework, in lieu of plain JavaScript, that will display multiple images of Pixar characters that will be shuffled every-time each one is clicked.
 
 ## Built With
 
