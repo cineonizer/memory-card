@@ -1,4 +1,4 @@
-# CV Application
+# Memory Card
 
 This is the [Memory Card](https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript/lessons/memory-card) project from the curriculum of [The Odin Project's Full Stack JavaScript Path](https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript).
 
